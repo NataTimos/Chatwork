@@ -1,0 +1,20 @@
+{% extends "chat/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="container">
+    <hr>
+        <div class="post-{{post.id}} post">
+            <div class="alert alert-success">{{ post.author }} says at {{post.date}}</div>  
+                Post:
+                <div class="text-{{post.id}} elem-post">{{post.text}}</div>
+                <div>Date: {{ post.date }}</div>
+                <div>Updated: {{ post.update_date }}</div>
+        </div>
+        <hr>
+</div>
+
+    
+{% endblock %}

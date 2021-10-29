@@ -1,0 +1,44 @@
+{% extends "chat/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    
+    <h2 id="h2-posts" class="shadow-sm p-3 mb-5 bg-body rounded">All Posts</h2>
+
+    <div class="posts-block">
+
+        {% for post in posts %}
+        
+                <div class="post-{{post.id}} post">
+                    <div class="alert alert-success">{{ post.author }} with email {{ post.email}} says at {{post.date}}</div>  
+                    <a href="{{ post.id }}">Post-{{post.id}}</a>:
+                    <div class="text-{{post.id}} elem-post">{{post.text}}</div>
+                
+                    <div class='edit_post-{{post.id}} edit_post' data-post-id = {{post.id}}>
+                        <button class='btn btn-warning' data-post_id = {{post.id}} type="button" >
+                            <span>
+                                Edit post
+                            </span> 
+                        </button>
+                        <div>
+                            Updated at {{ post.update_date}}
+                        </div>
+
+                    </div>
+                <br>
+                </div>
+            
+        {% endfor %}
+    </div>
+
+    
+    {% include "chat/numbers.html" with page=queryset %}
+
+{% endblock %} 
+</div>
+    
+
+{% block script %}
+    <script src="{% static 'chat/index.js' %}"></script>
+{% endblock %}
