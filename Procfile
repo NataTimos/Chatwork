@@ -1,0 +1,1 @@
+web: gunicorn chatwork.wsgi --log-file -
